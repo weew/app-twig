@@ -12,7 +12,7 @@ class TwigProvider {
      * @param IContainer $container
      */
     public function initialize(IContainer $container) {
-        $container->set(Twig_Loader_Filesystem::class, [$this, 'createTwigLoaderFilesystem'])->singleton();
+        $container->set([TwigLoader::class, Twig_Loader_Filesystem::class], [$this, 'createTwigLoaderFilesystem'])->singleton();
         $container->set([Twig::class, Twig_Environment::class], [$this, 'createTwigEnvironment'])->singleton();
     }
 
@@ -23,7 +23,7 @@ class TwigProvider {
      * @throws Twig_Error_Loader
      */
     public function createTwigLoaderFilesystem(TwigConfig $config) {
-        $loader = new Twig_Loader_Filesystem();
+        $loader = new TwigLoader();
 
         foreach ($config->getPaths() as $path) {
             $loader->addPath($path);
@@ -38,13 +38,13 @@ class TwigProvider {
 
     /**
      * @param TwigConfig $config
-     * @param Twig_Loader_Filesystem $loader
+     * @param TwigLoader $loader
      *
      * @return Twig
      */
     public function createTwigEnvironment(
         TwigConfig $config,
-        Twig_Loader_Filesystem $loader
+        TwigLoader $loader
     ) {
         return new Twig($loader, $this->buildTwigEnvironmentOptions($config));
     }

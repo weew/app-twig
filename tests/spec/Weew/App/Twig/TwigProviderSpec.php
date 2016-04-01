@@ -8,6 +8,7 @@ use Twig_Environment;
 use Twig_Loader_Filesystem;
 use Weew\App\Twig\Twig;
 use Weew\App\Twig\TwigConfig;
+use Weew\App\Twig\TwigLoader;
 use Weew\App\Twig\TwigProvider;
 use Weew\Container\Container;
 
@@ -44,6 +45,7 @@ class TwigProviderSpec extends ObjectBehavior {
         $container = new Container();
         $this->initialize($container);
 
+        it($container->has(TwigLoader::class))->shouldBe(true);
         it($container->has(Twig_Loader_Filesystem::class))->shouldBe(true);
         it($container->has(Twig::class))->shouldBe(true);
         it($container->has(Twig_Environment::class))->shouldBe(true);
@@ -52,6 +54,7 @@ class TwigProviderSpec extends ObjectBehavior {
     function it_creates_twig_filesystem_loader(TwigConfig $config) {
         $loader = $this->createTwigLoaderFilesystem($config);
         $loader->shouldHaveType(Twig_Loader_Filesystem::class);
+        $loader->shouldHaveType(TwigLoader::class);
         $loader->getPaths()->shouldBe([__DIR__ . '/path1', __DIR__ . '/path2']);
         $loader->getPaths('namespace1')->shouldBe([__DIR__ . '/path1']);
         $loader->getPaths('namespace2')->shouldBe([__DIR__ . '/path2']);
@@ -73,9 +76,10 @@ class TwigProviderSpec extends ObjectBehavior {
 
     function it_creates_twig_environment(
         TwigConfig $config,
-        Twig_Loader_Filesystem $loader
+        TwigLoader $loader
     ) {
         $twig = $this->createTwigEnvironment($config, $loader);
+        $twig->shouldHaveType(Twig::class);
         $twig->shouldHaveType(Twig_Environment::class);
     }
 }
