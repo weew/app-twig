@@ -38,23 +38,23 @@ $app->getKernel()->addProviders([
 This is how your config *might* look like in yaml:
 
 ```yaml
-    twig:
-        debug: true
-        charset: utf-8
-        base_template_class: SomeClass
-        cache: /cache/path
-        auto_reload: true
-        auto_escape: true
-        strict_variables: false
-        optimizations: -1
+twig:
+  debug: true
+  charset: utf-8
+  base_template_class: SomeClass
+  cache: /cache/path
+  auto_reload: true
+  auto_escape: true
+  strict_variables: false
+  optimizations: -1
 
-        paths:
-          - /path/to/views
-          - /another/path/to/views
+  paths:
+    - /path/to/views
+    - /another/path/to/views
 
-        namespaces:
-          namespace: /path/to/namespaced/views
-          another_namespace: /another/path/to/namespaced/views
+  namespaces:
+    namespace: /path/to/namespaced/views
+    another_namespace: /another/path/to/namespaced/views
 ```
 
 The only required setting is `twig.debug`, all the other are optional and should be used when needed. Fur further information about twig configuration please take a look at twig [documentation](http://twig.sensiolabs.org/doc/api.html#environment-options).
