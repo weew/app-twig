@@ -13,7 +13,7 @@ class TwigProvider {
      */
     public function initialize(IContainer $container) {
         $container->set(Twig_Loader_Filesystem::class, [$this, 'createTwigLoaderFilesystem'])->singleton();
-        $container->set(Twig_Environment::class, [$this, 'createTwigEnvironment'])->singleton();
+        $container->set([Twig::class, Twig_Environment::class], [$this, 'createTwigEnvironment'])->singleton();
     }
 
     /**
@@ -40,13 +40,13 @@ class TwigProvider {
      * @param TwigConfig $config
      * @param Twig_Loader_Filesystem $loader
      *
-     * @return Twig_Environment
+     * @return Twig
      */
     public function createTwigEnvironment(
         TwigConfig $config,
         Twig_Loader_Filesystem $loader
     ) {
-        return new Twig_Environment($loader, $this->buildTwigEnvironmentOptions($config));
+        return new Twig($loader, $this->buildTwigEnvironmentOptions($config));
     }
 
     /**

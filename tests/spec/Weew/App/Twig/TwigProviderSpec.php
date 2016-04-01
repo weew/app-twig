@@ -6,6 +6,7 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
+use Weew\App\Twig\Twig;
 use Weew\App\Twig\TwigConfig;
 use Weew\App\Twig\TwigProvider;
 use Weew\Container\Container;
@@ -44,6 +45,7 @@ class TwigProviderSpec extends ObjectBehavior {
         $this->initialize($container);
 
         it($container->has(Twig_Loader_Filesystem::class))->shouldBe(true);
+        it($container->has(Twig::class))->shouldBe(true);
         it($container->has(Twig_Environment::class))->shouldBe(true);
     }
 
