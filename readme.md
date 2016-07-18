@@ -1,10 +1,10 @@
 # App twig provider
 
-[![Build Status](https://img.shields.io/travis/weew/php-app-twig.svg)](https://travis-ci.org/weew/php-app-twig)
-[![Code Quality](https://img.shields.io/scrutinizer/g/weew/php-app-twig.svg)](https://scrutinizer-ci.com/g/weew/php-app-twig)
-[![Test Coverage](https://img.shields.io/coveralls/weew/php-app-twig.svg)](https://coveralls.io/github/weew/php-app-twig)
-[![Version](https://img.shields.io/packagist/v/weew/php-app-twig.svg)](https://packagist.org/packages/weew/php-app-twig)
-[![Licence](https://img.shields.io/packagist/l/weew/php-app-twig.svg)](https://packagist.org/packages/weew/php-app-twig)
+[![Build Status](https://img.shields.io/travis/weew/app-twig.svg)](https://travis-ci.org/weew/app-twig)
+[![Code Quality](https://img.shields.io/scrutinizer/g/weew/app-twig.svg)](https://scrutinizer-ci.com/g/weew/app-twig)
+[![Test Coverage](https://img.shields.io/coveralls/weew/app-twig.svg)](https://coveralls.io/github/weew/app-twig)
+[![Version](https://img.shields.io/packagist/v/weew/app-twig.svg)](https://packagist.org/packages/weew/app-twig)
+[![Licence](https://img.shields.io/packagist/l/weew/app-twig.svg)](https://packagist.org/packages/weew/app-twig)
 
 ## Table of contents
 
@@ -16,11 +16,11 @@
 
 ## Installation
 
-`composer require weew/php-app-twig`
+`composer require weew/app-twig`
 
 ## Introduction
 
-This package integrates [twig/twig](https://github.com/twigphp/Twig) into the [weew/php-app](https://github.com/weew/php-app) framework.
+This package integrates [twig/twig](https://github.com/twigphp/Twig) into the [weew/app](https://github.com/weew/app) framework.
 
 ## Usage
 
